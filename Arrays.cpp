@@ -43,7 +43,7 @@ int main() {
                 cout << "Enter a number for [" << i << "][" << j << "]: ";
                 cin >> arr[i][j];
                 if (cin.fail() || arr[i][j] < 0) { // Validate if input is a number and not negative or 0
-                    cout << "Invalid input!";
+                    cout << "Invalid input!" << endl;
                     cin.clear();
                     cin.ignore(1000, '\n');
                     continue;
