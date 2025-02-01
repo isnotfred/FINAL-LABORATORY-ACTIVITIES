@@ -5,7 +5,7 @@ using namespace std;
 int getUserInput(string order);                     // Function to get user's input and validate it
 int getGreatestCommonFactor(int x, int y);          // Function to calculate the Greatest Common Factor (GCF) using the Euclidean algorithm
 int getLeastCommonMultiple(int x, int y, int GCF);  // Function to get the Least Common Multiple (LCM) using the formula (x * y) / GCF
-void listCommonDivisors(int x, int y);              // Function to list all common divisors of two numbers
+void listCommonDivisors(int x, int y, int GCF);     // Function to list all common divisors of two numbers
 
 int main() {
     int num1, num2, GCF;
@@ -19,7 +19,7 @@ int main() {
     // Display results
     cout << "\nThe Greatest Common Factor (GCF) of " << num1 << " and " << num2 << " is: " << GCF;
     cout << "\nThe Least Common Multiple of " << num1 << " and " << num2 << " is: " << getLeastCommonMultiple(num1, num2, GCF);
-    listCommonDivisors(num1, num2);
+    listCommonDivisors(num1, num2, GCF);
 
     return 0;
 }
@@ -65,14 +65,11 @@ int getLeastCommonMultiple(int x, int y, int GCF) {
 }
 
 // Function to list all common divisors of two numbers
-void listCommonDivisors(int x, int y) {
-    int min;
-    x < y ? min = x : min = y;  // Determine the smaller number
-    
-    // Loop through numbers from 1 to the smaller number
+void listCommonDivisors(int x, int y, int GCF) {
+    // Loop through numbers from 1 to the GCF
     cout << "\nThe Common Divisors of " << x << " and " << y << " are: ";
     bool first = true;
-    for (int i = 1; i <= min; i++) {
+    for (int i = 1; i <= GCF; i++) {
         if (x % i == 0 && y % i == 0) { // Check if 'i' is a divisor of both numbers
             if (!first) cout << ", ";
             cout << i;
